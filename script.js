@@ -4,6 +4,8 @@ const issuesContainer = document.getElementById("issues-container");
 const totalCount = document.getElementById("total-count");
 const loadingSpinner = document.getElementById("loading-spinner");
 
+let allData = [];
+
 // spinner manage function
 function showLoading() {
   loadingSpinner.classList.remove("hidden");
@@ -19,9 +21,31 @@ async function loadIssues() {
   const res = await fetch(allIssues);
   const data = await res.json();
   console.log(data.data);
+  allData = data.data;
 
   hideLoading();
-  displayIssues(data.data);
+  displayIssues(allData);
+}
+
+// Function to filter data by status:
+function filterIssues(status, event) {
+  if (status === "all") {
+    displayIssues(allData);
+  } else {
+    const filterData = allData.filter(function (issue) {
+      return issue.status === status;
+    });
+    displayIssues(filterData);
+  }
+  // button toggle color
+  const button = document.querySelectorAll(".filter-btn");
+  button.forEach(function (btn) {
+    btn.classList.remove("bg-blue-600", "text-white", "bg-indigo-600");
+    btn.classList.add("bg-gray-200", "text-gray-700");
+  });
+  const clickedButton = event.currentTarget;
+  clickedButton.classList.remove("bg-gray-200", "text-gray-700");
+  clickedButton.classList.add("bg-blue-600", "text-white");
 }
 
 // showing data in UI:

@@ -73,10 +73,10 @@
         <!--all open close section  -->
         <div class="bg-white p-2 rounded-lg border border-gray-100 shadow-md w-full">
             
-            <div class="flex gap-4">
-            <button id="all-btn" class="btn  bg-indigo-600 text-white border-none px-10 rounded-lg hover:bg-indigo-700">All</button>
-            <button id="open-btn" class="btn px-10 rounded-lg bg-white text-slate-600 border border-gray-200 hover:bg-gray-100">Open</button>
-            <button id="closed-btn" class="btn px-10 rounded-lg bg-white text-slate-600 border border-gray-200 hover:bg-gray-100">Close</button>
+            <div  class="flex gap-4">
+            <button onclick="filterIssues('all', event)" id="all-btn" class="filter-btn btn bg-blue-600 text-white px-10 rounded-lg border border-gray-500">All</button>
+            <button onclick="filterIssues('open', event)" id="open-btn" class="filter-btn btn px-10 rounded-lg bg-gray-200 text-gray-700 border border-gray-500">Open</button>
+            <button onclick="filterIssues('closed', event)" id="closed-btn" class="filter-btn btn px-10 rounded-lg bg-gray-200 text-gray-700 border border-gray-500 ">Close</button>
             </div>
             </div>
 
