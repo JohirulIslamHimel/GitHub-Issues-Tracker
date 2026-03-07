@@ -56,6 +56,7 @@ function displayIssues(issues) {
   issues.forEach((issue) => {
     const card = document.createElement("div");
 
+    card.setAttribute("onclick", `loadSingleIssue('${issue.id}')`);
     // image logic:
     let statusImage = "";
     if (issue.status === "open") {
@@ -97,6 +98,7 @@ function displayIssues(issues) {
         <div class="badge badge-sm bg-white border-gray-200 text-[10px] px-2 py-2 font-bold lowercase italic ${badgeTextColor}">
            ${issue.priority}
         </div>
+        
       </div>
       
       <div>
@@ -117,6 +119,7 @@ function displayIssues(issues) {
           </div>
       </div>
     `;
+
     issuesContainer.appendChild(card);
   });
 }
@@ -146,3 +149,42 @@ searchInputField.addEventListener("keyup", (event) => {
     handleSearch();
   }
 });
+
+// load single issue details in modal:
+const loadSingleIssue = async (issueId) => {
+  const res = await fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`,
+  );
+  const result = await res.json();
+  const issue = result.data;
+
+  // title description & set author
+  document.getElementById("modalTitle").textContent = issue.title;
+  document.getElementById("modalDescription").textContent = issue.description;
+  document.getElementById("modalAuthor").textContent = issue.author;
+  document.getElementById("modalAssignee").textContent =
+    issue.assignee || "Unassigned";
+  //date
+  const dateObj = new Date(issue.createdAt);
+  document.getElementById("modalDate").textContent =
+    dateObj.toLocaleDateString();
+
+  // status & labels
+  const statusEl = document.getElementById("modalStatus");
+  statusEl.textContent = issue.status[0].toUpperCase() + issue.status.slice(1);
+
+  const labelContainer = document.getElementById("modalLabels");
+  labelContainer.innerHTML = issue.labels
+    .map(
+      (label) =>
+        `<span class="px-3 py-1 bg-yellow-400 text-[10px] font-black rounded-md uppercase text-black italic">${label}</span>`,
+    )
+    .join("");
+
+  const priorityEl = document.getElementById("modalPriority");
+  priorityEl.textContent = issue.priority.toUpperCase();
+  priorityEl.className = `px-4 py-1.5 rounded-full text-white font-black text-xs uppercase shadow-sm ${issue.priority === "high" ? "bg-red-500 shadow-red-200" : "bg-yellow-500 shadow-yellow-200"}`;
+
+  my_modal_5.showModal();
+};
+window.loadSingleIssue = loadSingleIssue;

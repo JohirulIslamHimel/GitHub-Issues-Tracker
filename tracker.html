@@ -118,15 +118,41 @@
                <!-- modal -->
                 <section id="modal-section">
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-      <h3 id="modalTitle" class="text-lg font-bold text-slate-800"></h3>
+    <div class="modal-box max-w-lg p-4 sm:p-8">
+      <div class="flex justify-between items-start mb-4">
+        <h3 id="modalTitle" class="text-xl sm:text-2xl font-bold text-slate-800 leading-tight"></h3>
+        
+      </div>
       
-      <div id="modalDescription" class="py-4 text-sm text-gray-600">
+      <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
+        <span id="modalStatus" class="px-3 py-1 bg-green-100 text-green-500 rounded-full font-medium text-xs"></span>
+        <span>•</span>
+        <span>Opened by <span id="modalAuthor" class="font-bold text-gray-600"></span></span>
+        <span>•</span>
+        <span id="modalDate"></span>
+      </div>
+
+      <div id="modalLabels" class="flex flex-wrap gap-2 mb-6">
         </div>
 
-      <div class="modal-action">
+      <div class="mb-8">
+        <p id="modalDescription" class="text-gray-500 text-base leading-relaxed"></p>
+      </div>
+
+      <div class="bg-gray-50/80 p-4 rounded-2xl flex justify-between items-center mb-6">
+        <div class="space-y-0.5">
+          <p class="text-[9px] sm:text-[11px] text-gray-400 uppercase font-bold">Assignee:</p>
+          <p id="modalAssignee" class="text-slate-800 font-bold text-base sm:text-lg"></p>
+        </div>
+        <div class="text-right space-y-1">
+          <p class="text-[11px] text-gray-400 uppercase tracking-wider font-bold">Priority:</p>
+          <span id="modalPriority" class="px-4 py-1.5 rounded-full text-white font-black text-xs uppercase shadow-sm shadow-red-200"></span>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
         <form method="dialog">
-          <button class="btn">Close</button>
+          <button class="btn bg-indigo-600 hover:bg-indigo-700 text-white border-none px-10 rounded-xl h-12">Close</button>
         </form>
       </div>
     </div>
