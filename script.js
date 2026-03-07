@@ -67,7 +67,7 @@ function displayIssues(issues) {
     // border color logic:
     let topBorderColor = "border-t-purple-400"; //
     if (issue.priority === "high") {
-      topBorderColor = "border-t-emerald-400";
+      topBorderColor = "border-t-red-400";
     } else if (issue.priority === "medium") {
       topBorderColor = "border-t-yellow-400";
     }
@@ -121,3 +121,28 @@ function displayIssues(issues) {
   });
 }
 loadIssues();
+
+// Search options
+const handleSearch = async () => {
+  const searchInput = document.getElementById("searchInput");
+  const searchText = searchInput.value.trim();
+  if (searchText.length > 0) {
+    showLoading();
+    const res = await fetch(
+      `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`,
+    );
+    const data = await res.json();
+    console.log("Search Result:", data.data);
+    displayIssues(data.data);
+    hideLoading();
+  } else if (searchText.length === 0) {
+    displayIssues(allData);
+  }
+};
+// input field event listener(keyup & Enter):
+const searchInputField = document.getElementById("searchInput");
+searchInputField.addEventListener("keyup", (event) => {
+  if (event.target.value.length > 2 || event.key === "Enter") {
+    handleSearch();
+  }
+});
