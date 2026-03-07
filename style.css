@@ -3,10 +3,10 @@
 }
 
 .no-border {
-  background-color: white;
-  color: black;
+  /* background-color: white; */
+  /* color: black; */
   outline: none !important;
-  box-shadow: none !important;
-  border: 1px solid #d1d5db !important;
+  /* box-shadow: none !important; */
+  border: 1px solid #4a00ff !important;
   transition: all 0.2s ease;
 }

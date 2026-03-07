@@ -29,14 +29,19 @@ async function loadIssues() {
 
 // Function to filter data by status:
 function filterIssues(status, event) {
-  if (status === "all") {
-    displayIssues(allData);
-  } else {
-    const filterData = allData.filter(function (issue) {
-      return issue.status === status;
-    });
-    displayIssues(filterData);
-  }
+  showLoading();
+  setTimeout(() => {
+    if (status === "all") {
+      displayIssues(allData);
+    } else {
+      const filterData = allData.filter(function (issue) {
+        return issue.status === status;
+      });
+      displayIssues(filterData);
+    }
+    hideLoading();
+  }, 300);
+
   // button toggle color
   const button = document.querySelectorAll(".filter-btn");
   button.forEach(function (btn) {
