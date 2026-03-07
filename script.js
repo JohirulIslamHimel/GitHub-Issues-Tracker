@@ -66,11 +66,11 @@ function displayIssues(issues) {
     }
 
     // border color logic:
-    let topBorderColor = "border-t-purple-400"; //
-    if (issue.priority === "high") {
-      topBorderColor = "border-t-red-400";
-    } else if (issue.priority === "medium") {
-      topBorderColor = "border-t-yellow-400";
+    let topBorderColor = ""; //
+    if (issue.status === "open") {
+      topBorderColor = "border-t-emerald-500";
+    } else if (issue.status === "closed") {
+      topBorderColor = "border-t-purple-400";
     }
 
     // badge color:

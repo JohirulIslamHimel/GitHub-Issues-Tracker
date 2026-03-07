@@ -35,7 +35,7 @@
   </head>
   <body class="bg-gray-50 min-h-screen">
     <nav
-      class="bg-white border-b border-gray-200 py-3 px-10 flex justify-between items-center sticky top-0 z-50"
+      class="bg-white border-b border-gray-200 py-3 px-10 flex flex-wrap justify-between items-center gap-4 sticky top-0 z-50 sm:px-10"
     >
       <div class="flex items-center gap-2">
         <img
@@ -52,7 +52,7 @@
         <div class="join">
           
             <label
-              class="input input-bordered join-item flex items-center gap-2 bg-gray-50 h-10 border-r-0"
+              class="input input-bordered no-border join-item flex items-center gap-2 bg-gray-50 h-10 border-r-0"
             >
               <i onclick="handleSearch()"  class="fa-solid fa-magnifying-glass text-gray-400 text-sm cursor-pointer hover:text-indigo-600 transition-colors"></i>
               <input
@@ -64,7 +64,7 @@
               />
             </label>
             
-          <button class="btn btn-primary join-item h-10 min-h-0 bg-indigo-600 border-none text-white px-6 font-semibold">+ New Issue</button>
+          <button class="btn btn-primary join-item h-10 min-h-0 bg-indigo-600 border-none text-white px-6 font-semibold">Search</button>
         
       </div>
     </nav>
@@ -73,19 +73,19 @@
         <!--all open close section  -->
         <div class="bg-white p-2 rounded-lg border border-gray-100 shadow-md w-full">
             
-            <div  class="flex gap-4">
-            <button onclick="filterIssues('all', event)" id="all-btn" class="filter-btn btn bg-blue-600 text-white px-10 rounded-lg border border-gray-500">All</button>
-            <button onclick="filterIssues('open', event)" id="open-btn" class="filter-btn btn px-10 rounded-lg bg-gray-200 text-gray-700 border border-gray-500">Open</button>
-            <button onclick="filterIssues('closed', event)" id="closed-btn" class="filter-btn btn px-10 rounded-lg bg-gray-200 text-gray-700 border border-gray-500 ">Close</button>
+            <div  class="flex gap-2 flex-wrap w-full  sm:w-auto">
+            <button onclick="filterIssues('all', event)" id="all-btn" class="filter-btn btn bg-blue-600 text-white flex-1 sm:flex-none sm:w-32  rounded-lg border border-gray-500">All</button>
+            <button onclick="filterIssues('open', event)" id="open-btn" class="filter-btn btn  rounded-lg bg-gray-200 text-gray-700 border border-gray-500 flex-1 sm:flex-none sm:w-32">Open</button>
+            <button onclick="filterIssues('closed', event)" id="closed-btn" class="filter-btn btn  rounded-lg bg-gray-200 text-gray-700 border border-gray-500 flex-1 sm:flex-none sm:w-32 ">Close</button>
             </div>
             </div>
 
 
             <!-- Issues -->
-             <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-md flex justify-between items-center">
+             <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-md flex flex-wrap justify-between items-center gap-6">
                 <div class="flex items-center gap-4">
-                    <div class="bg-indigo-50 p-3 rounded-full">
-                        <img src="./assets/Aperture.png" alt="Aperture" class="w-8 h-8">
+                    <div class="bg-indigo-50 p-3 rounded-full flex-shrink-0 w-14 h-14 flex items-center justify-center">
+                        <img src="./assets/Aperture.png" alt="Aperture" class="w-8 h-8 ">
                     </div>
                     <div class="">
                         <h1 class="text-2xl font-semibold text-slate-800"><span id="total-count">50</span> Issues</h1>
