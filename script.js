@@ -149,8 +149,11 @@ const handleSearch = async () => {
 };
 // input field event listener(keyup & Enter):
 const searchInputField = document.getElementById("searchInput");
-searchInputField.addEventListener("keyup", (event) => {
-  if (event.target.value.length > 2 || event.key === "Enter") {
+searchInputField.addEventListener("input", (event) => {
+  const value = event.target.value.trim();
+  if (value.length === 0) {
+    displayIssues(allData);
+  } else if (value.length > 2) {
     handleSearch();
   }
 });
