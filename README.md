@@ -1,4 +1,4 @@
-GitHub Issues Tracker
+GitHub Issues Tracker:
 
 ### **API Endpoints:**
 
@@ -64,53 +64,82 @@ GitHub Issues Tracker
   - CreatedAt
 - Clicking on a tree name in a card will open a modal and show all the information about that Issue.
 
-### 🚀 Challenges
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top.
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot.
-  - 1️⃣ What is the difference between var, let, and const?
-  - 2️⃣ What is the spread operator (...)?
-  - 3️⃣ What is the difference between map(), filter(), and forEach()?
-  - 4️⃣ What is an arrow function?
-  - 5️⃣ What are template literals?
-
----
-
 ## 🛠️ Technology Stack
 
 - **HTML**
 - **CSS** (Vanilla/Tailwind/DaisyUI)
 - **JavaScript** (Vanilla)
 
----
-
 ## 🔑 Demo Credentials
 
 ```text
 Username: admin
 Password: admin123
+
+
 ```
 
----
+1.What is the difference between var, let, and const?
+Ans:- Basically, they all are used to store data, but the main difference is how they behave with Scope and Re-assignment.
 
-### Optional:
+1. var: It is the old way of declaring variables. It is Function Scoped, which means it doesn't care about blocks like if or for. Also, we can declare the same variable name again and again, which can create confusion in big projects.
 
-- No need to show status: Open, Closed styles On modals.
-- No Need to show icon on labels
-- No need to apply styles on Priority
+2. let: It is the modern and safer version of var. It is Block Scoped, so it only works inside the curly braces { } where it is defined. We cannot re-declare it in the same block, but we can update its value later.
 
----
+3. const: It is used for values that should stay the same. Once we assign a value to a const, we can't change it. Like let, it is also Block Scoped.
 
-## 📤 What to submit
+2.What is the spread operator (...)?
+Ans:- The Spread Operator is just three dots (...), but it’s super useful.
+The 3 main things it does:
 
-- **GitHub Repository Link:**
-- **Live Site Link:**
+1.Making a Quick Copy:
+Instead of manually copying every item, we can just do const copy = [...originalArray];. It creates a brand new copy so if you change one, the other stays safe.
 
----
+2.Combining Arrays:
+If we have two lists (like fruits and vegetables) and we want to put them into one big list, we just "spread" both of them: const groceryList = [...fruits, ...vegetables];.
+
+3.Updating Objects:
+We use it a lot to update an object. For example, if we want to change only the "status" of an issue but keep the "title" and "id" the same, we spread the old object and just change that one part.
+
+3.What is the difference between map(), filter(), and forEach()?
+Ans:- Actually, all three are used to loop through an array, but they have different purposes. Here is how I understand them:
+
+1. forEach() – The "Just do it" loop
+   Think of forEach like a simple for loop. It goes through every item in the array and does something (like a console.log or updating a variable).
+
+Key Point: It doesn't return anything. It just executes a function for each element.
+
+Example: Using it to print all the issue titles in the console.
+
+2. map() – The "Transformer"
+   map is used when we want to create a new array by changing every item of an existing array.
+
+Key Point: It always returns a new array of the same length.
+
+Example: In our project, we used map() to convert the labels array into HTML tags (like <span>). It took the label name and "transformed" it into a piece of HTML.
+
+3. filter() – The "Selector"
+   As the name suggests, filter is used to pick only specific items from an array based on a condition.
+
+Key Point: It returns a new array, but only with the items that pass the "test."
+
+Example: When we clicked the "Open" button, we used filter() to create a new list that only includes issues where status === "open".
+
+4. What is an arrow function?
+   Ans:- In simple words, an Arrow Function is a newer and shorter way to write functions in JavaScript. It was introduced in ES6 to make the code look cleaner and more readable. Instead of using the function keyword, we use a "fat arrow" =>.
+   Why it’s better (In my opinion):
+
+1.Cleaner Code: We don't have to write the word function or use curly braces {} and return if the function is only one line.
+
+2.Implicit Return: If the function has only one line of code, it automatically returns the value without needing the return keyword.
+
+3.Modern Look: It makes the code look more professional, especially when using things like map or filter.
+
+5.What are template literals?
+Ans:- Template literals are a modern way to handle strings in JavaScript. Instead of using single quotes (' ') or double quotes (" "), we use backticks (`). It makes working with strings much easier, especially when we need to mix variables with text.
+
+-- Dynamic Variables: Instead of using the plus sign (+) many times to join text and variables, we can just use the ${variable} syntax. It’s way cleaner.
+
+-- Multi-line Strings: Before template literals, if we wanted to write something on a new line, we had to use \n. With backticks, we can just press "Enter" and write on the next line—it works perfectly.
+
+-- HTML Templates: It’s great for creating HTML dynamically from JavaScript.

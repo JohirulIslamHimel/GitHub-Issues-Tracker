@@ -28,7 +28,7 @@ async function loadIssues() {
 }
 
 // Function to filter data by status:
-function filterIssues(status, event) {
+async function filterIssues(status, event) {
   showLoading();
   setTimeout(() => {
     if (status === "all") {
@@ -40,7 +40,7 @@ function filterIssues(status, event) {
       displayIssues(filterData);
     }
     hideLoading();
-  }, 300);
+  }, 100);
 
   // button toggle color
   const button = document.querySelectorAll(".filter-btn");
